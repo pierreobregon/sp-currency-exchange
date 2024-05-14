@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "1a11541b-e9ce-417c-8ded-6fd16f78a2db",
+		"name": "API SP - currencyExchange",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "338624"
+	},
+	"item": [
+		{
+			"name": "listar Divisas",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api-sp/exchange",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api-sp",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listar Auditoria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8081/api-sp/exchange/audit-exchange",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api-sp",
+						"exchange",
+						"audit-exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Divisa",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"divisaOrigen\":\"USD\",\r\n    \"divisaDestino\":\"EUR\",\r\n    \"tipoCambio\":4.14,\r\n    \"userApp\":\"12312\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api-sp/exchange",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api-sp",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Registro Divisa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"divisaOrigen\":\"USD\",\r\n    \"divisaDestino\":\"EUR\",\r\n    \"tipoCambio\":4.14,\r\n    \"userApp\":\"12312\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api-sp/exchange",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api-sp",
+						"exchange"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Busqueda Divisa",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"divisaOrigen\":\"USD\",\r\n    \"divisaDestino\":\"EUR\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8081/api-sp/exchange/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"api-sp",
+						"exchange",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

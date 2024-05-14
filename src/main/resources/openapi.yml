@@ -1,0 +1,122 @@
+openapi: 3.0.3
+info:
+  title: Currency Exchange API
+  description: API for managing currency exchanges
+  version: 1.0.0
+paths:
+  /api-sp/exchange/search:
+    post:
+      summary: Search for currency exchange rate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                divisaOrigen:
+                  type: string
+                divisaDestino:
+                  type: string
+              required:
+                - divisaOrigen
+                - divisaDestino
+      responses:
+        '200':
+          description: Successful search
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CurrencyExchange'
+        '204':
+          description: No content found
+  /api-sp/exchange:
+    post:
+      summary: Register a new currency exchange rate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchange'
+      responses:
+        '200':
+          description: Successfully registered
+        '202':
+          description: Exchange already exists
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  codigoError:
+                    type: integer
+                  descripcionError:
+                    type: string
+    put:
+      summary: Update an existing currency exchange rate
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CurrencyExchange'
+      responses:
+        '200':
+          description: Successfully updated
+    get:
+      summary: List all currency exchange rates
+      responses:
+        '200':
+          description: List of currency exchange rates
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CurrencyExchange'
+        '204':
+          description: No content found
+  /api-sp/audit-exchange:
+    get:
+      summary: List all currency exchange audit logs
+      responses:
+        '200':
+          description: List of audit logs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CurrencyExchangeAudit'
+        '204':
+          description: No content found
+components:
+  schemas:
+    CurrencyExchange:
+      type: object
+      properties:
+        divisaOrigen:
+          type: string
+        divisaDestino:
+          type: string
+        tipoCambio:
+          type: number
+        userApp:
+          type: string
+        fechaActualizacion:
+          type: string
+          format: date-time
+    CurrencyExchangeAudit:
+      type: object
+      properties:
+        id:
+          type: integer
+        divisaOrigen:
+          type: string
+        divisaDestino:
+          type: string
+        tipoCambio:
+          type: number
+        userApp:
+          type: string
+        fechaRegistro:
+          type: string
+          format: date-time
